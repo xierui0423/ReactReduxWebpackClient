@@ -6,9 +6,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Voting from './components/Voting.jsx';
 
-const pair = ['Trainspotting', '28 Days Later'];
+const pair = ['Topic1', 'Topic2'];
 
 ReactDOM.render(
-  <Voting pair={pair} />,
+  <Voting pair={pair} winner="Topic1" />,
   document.getElementById('app')
 );
