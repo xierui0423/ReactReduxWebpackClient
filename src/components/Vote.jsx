@@ -3,6 +3,7 @@
  */
 
 import React from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 
 const Vote = ({ pair, hasVoted, vote }) => {
   const getPair = () => pair || [];
@@ -28,8 +29,8 @@ const Vote = ({ pair, hasVoted, vote }) => {
 };
 
 Vote.propTypes = {
-  pair: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
-  vote: React.PropTypes.func.isRequired,
+  pair: ImmutablePropTypes.list,
+  vote: React.PropTypes.func,
   hasVoted: React.PropTypes.string,
 };
 

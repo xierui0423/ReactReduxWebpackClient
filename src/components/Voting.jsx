@@ -1,6 +1,8 @@
 import React from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 import Winner from './Winner.jsx';
 import Vote from './Vote.jsx';
+
 
 const Voting = props =>
   (<div>
@@ -11,8 +13,8 @@ const Voting = props =>
 
 
 Voting.propTypes = {
-  pair: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
-  vote: React.PropTypes.func.isRequired,
+  pair: ImmutablePropTypes.list,
+  vote: React.PropTypes.func,
   hasVoted: React.PropTypes.string,
   winner: React.PropTypes.string,
 };

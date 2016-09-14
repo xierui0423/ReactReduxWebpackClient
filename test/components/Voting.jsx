@@ -5,13 +5,14 @@
 import React from 'react';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
+import Immutable from 'immutable';
 import Voting from '../../src/components/Voting.jsx';
 
 
 describe('Voting', () => {
   it('renders a pair of buttons', () => {
     const component = mount(
-      <Voting pair={['Topic1', 'Topic2']} />
+      <Voting pair={Immutable.fromJS(['Topic1', 'Topic2'])} />
     );
 
     const buttons = component.find('button');
@@ -26,7 +27,7 @@ describe('Voting', () => {
     const vote = (entry) => { votedWith = entry; };
 
     const component = mount(
-      <Voting pair={['Topic1', 'Topic2']} vote={vote} />
+      <Voting pair={Immutable.fromJS(['Topic1', 'Topic2'])} vote={vote} />
     );
 
     const buttons = component.find('button');
@@ -40,7 +41,7 @@ describe('Voting', () => {
   it('disables buttons when user has voted', () => {
     const component = mount(
       <Voting
-        pair={['Topic1', 'Topic2']}
+        pair={Immutable.fromJS(['Topic1', 'Topic2'])}
         hasVoted="Topic1"
       />
     );
@@ -55,7 +56,7 @@ describe('Voting', () => {
   it('adds label to the voted entry', () => {
     const component = mount(
       <Voting
-        pair={['Topic1', 'Topic2']}
+        pair={Immutable.fromJS(['Topic1', 'Topic2'])}
         hasVoted="Topic1"
       />
     );
@@ -70,7 +71,7 @@ describe('Voting', () => {
   it('renders the winner when there is one', () => {
     const component = mount(
       <Voting
-        pair={['Topic1', 'Topic2']}
+        pair={Immutable.fromJS(['Topic1', 'Topic2'])}
         winner="Topic2"
       />
     );
