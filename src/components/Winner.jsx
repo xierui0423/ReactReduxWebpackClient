@@ -1,9 +1,10 @@
-// import React from 'react';
-//
-// export default React.createClass({
-//   render: function() {
-//     return <div className="winner">
-//       Winner is {this.props.winner}!
-//     </div>;
-//   }
-// });
+import React from 'react';
+
+
+const Winner = ({ winner }) => <div className="winner">Winner is {winner}</div>;
+
+Winner.propTypes = {
+  winner: React.PropTypes.string,
+};
+
+export default Winner;
