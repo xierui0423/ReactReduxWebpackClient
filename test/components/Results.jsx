@@ -6,7 +6,7 @@ import React from 'react';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
 import Immutable from 'immutable';
-import Results from '../../src/components/Results.jsx';
+import { Results } from '../../src/components/Results.jsx';
 
 
 describe('Results', () => {

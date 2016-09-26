@@ -4,9 +4,11 @@
 
 import React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
+import { connect } from 'react-redux';
 import Winner from './Winner.jsx';
+import { next } from '../action-creators/action-creator.js';
 
-const Results = (props) => {
+export const Results = (props) => {
   const getPair = () => props.pair || [];
 
   const getVotes = entry => (props.tally && props.tally.get(entry)) || 0;
@@ -29,4 +31,15 @@ Results.propTypes = {
   winner: React.PropTypes.string,
 };
 
-export default Results;
+/**
+ * Mapping function
+ */
+function mapStateToProps(state) {
+  return {
+    pair: state.getIn(['vote', 'pair']),
+    tally: state.getIn(['vote', 'tally']),
+    winner: state.get('winner'),
+  };
+}
+
+export const ResultsContainer = connect(mapStateToProps, { next })(Results);
